@@ -46,7 +46,11 @@ public class RealTimeProject extends BaseTest {
 
 
         // Test Case 2 - Now we have to add item in the the cart
+        //we need to scroll to this item that's why we use this
         driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"Jordan Lift Off\"));"));
+
+        //But there is one problem while clickiing on "Add to Cart" we come to know that for all items on Product it has same "id" for all products. Now java might or appium inspector / locator might 
+        // get confused naa hojaye kis product ke "Add to Cart" pr click krna hai. Therefore , solution will be,  by that id we will get size of products and then will execute for loop for them
 
         int prodCount = driver.findElements(AppiumBy.id("com.androidsample.generalstore:id/productName")).size();
 
