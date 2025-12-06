@@ -63,6 +63,11 @@ public class RealTimeProject extends BaseTest {
 
         driver.findElement(AppiumBy.id("com.androidsample.generalstore:id/appbar_btn_cart")).click();
 
+
+        //Now, since we have now move to Cart screen so, we need to verify the item we added in cart is corret or not . How we can verify ? we can verify
+        // by item name shown. but , there is one problem when we fetch the locator for item name it turn out that is same as previous "Product" screen . 
+        // so, we have to make sure that it fetches the locator of "Cart" page not "Product" page . Therefore , we put a wait of some seconds and verifying the user is landed on "Cart" page
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.attributeContains(driver.findElement(AppiumBy.id("com.androidsample.generalstore:id/toolbar_title")),"text", "Cart"));
 
